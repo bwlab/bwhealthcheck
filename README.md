@@ -86,5 +86,4 @@ You are free to use, modify, and redistribute this module.
 
 **bwlab, Xpert Tech Agency**
 - Website: [www.bwlab.it](https://www.bwlab.it)
-- Email: commerciale@bwlab.it
 - PrestaShop Partner: [3-star certified](https://experts.prestashop.com/english/experts/partner/2118183/bwlab)
