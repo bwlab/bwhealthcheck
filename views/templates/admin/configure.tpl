@@ -4,7 +4,7 @@
 
 <div class="panel">
     <div class="panel-heading">
-        <i class="icon icon-heartbeat"></i> {l s='Health Check Report' mod='bwhealthcheck'}
+        <i class="icon icon-heartbeat"></i> {l s='Report Stato di Salute' mod='bwhealthcheck'}
     </div>
     <div class="panel-body">
         <!-- Action Buttons -->
@@ -12,13 +12,13 @@
             <div class="col-md-12" style="padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #eee;">
                 <form method="post" action="" style="display: inline;">
                     <button type="submit" name="submit_healthcheck_pdf" class="btn btn-primary" style="margin-right: 10px;">
-                        <i class="icon icon-file-pdf-o" style="margin-right: 6px;"></i>{l s='Generate PDF Report' mod='bwhealthcheck'}
+                        <i class="icon icon-file-pdf-o" style="margin-right: 6px;"></i>{l s='Genera Report PDF' mod='bwhealthcheck'}
                     </button>
-                    <button type="button" class="btn btn-info" style="margin-right: 10px;" data-toggle="modal" data-target="#bwhealthcheck_modal">
-                        <i class="icon icon-envelope" style="margin-right: 6px;"></i>{l s='Send Report to bwlab' mod='bwhealthcheck'}
+                    <button type="submit" name="submit_healthcheck_refresh" class="btn btn-default" style="margin-right: 10px;">
+                        <i class="icon icon-refresh" style="margin-right: 6px;"></i>{l s='Aggiorna Dati' mod='bwhealthcheck'}
                     </button>
-                    <button type="submit" name="submit_healthcheck_refresh" class="btn btn-default">
-                        <i class="icon icon-refresh" style="margin-right: 6px;"></i>{l s='Refresh Data' mod='bwhealthcheck'}
+                    <button type="button" class="btn btn-lg btn-success" style="padding: 10px 30px; font-size: 16px; font-weight: bold;" data-toggle="modal" data-target="#bwhealthcheck_modal">
+                        <i class="icon icon-envelope" style="margin-right: 8px;"></i>{l s='Invia Report e Richiedi Preventivo' mod='bwhealthcheck'}
                     </button>
                 </form>
             </div>
@@ -32,23 +32,23 @@
         <!-- Section 1: Version Information -->
         <div class="row" style="margin-bottom: 10px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
             <div class="col-md-12">
-                <h3>{l s='1. System Information' mod='bwhealthcheck'}</h3>
+                <h3>{l s='1. Informazioni di Sistema' mod='bwhealthcheck'}</h3>
                 <table class="table table-striped hc-table">
                     <tbody>
                         <tr>
-                            <td><strong>{l s='PrestaShop Version' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Versione PrestaShop' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.versions.prestashop}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='PHP Version' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Versione PHP' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.versions.php}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='MySQL/MariaDB Version' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Versione MySQL/MariaDB' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.versions.mysql}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Latest Stable Version' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Ultima Versione Stabile' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.versions.latest_stable}</td>
                         </tr>
                     </tbody>
@@ -59,23 +59,23 @@
         <!-- Section 2: Image Statistics -->
         <div class="row" style="margin-bottom: 10px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
             <div class="col-md-12">
-                <h3>{l s='2. Image Statistics' mod='bwhealthcheck'}</h3>
+                <h3>{l s='2. Statistiche Immagini' mod='bwhealthcheck'}</h3>
                 <table class="table table-striped hc-table">
                     <tbody>
                         <tr>
-                            <td><strong>{l s='Total Images' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Immagini Totali' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.images.total_images}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Products with Images' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Prodotti con Immagini' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.images.products_with_images}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Products without Images' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Prodotti senza Immagini' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.images.products_without_images}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Average Images per Product' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Media Immagini per Prodotto' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.images.avg_images_per_product}</td>
                         </tr>
                     </tbody>
@@ -86,43 +86,43 @@
         <!-- Section 3: E-commerce Statistics -->
         <div class="row" style="margin-bottom: 10px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
             <div class="col-md-12">
-                <h3>{l s='3. E-commerce Statistics' mod='bwhealthcheck'}</h3>
+                <h3>{l s='3. Statistiche E-commerce' mod='bwhealthcheck'}</h3>
                 <table class="table table-striped hc-table">
                     <tbody>
                         <tr>
-                            <td><strong>{l s='Total Orders' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Ordini Totali' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.ecommerce.total_orders}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Total Customers' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Clienti Totali' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.ecommerce.total_customers}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Total Addresses' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Indirizzi Totali' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.ecommerce.total_addresses}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Anonymous Carts' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Carrelli Anonimi' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.ecommerce.carts_anonymous}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Registered Carts' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Carrelli Registrati' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.ecommerce.carts_registered}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Avg Order Value (last 3 months)' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Valore Medio Ordine (ultimi 3 mesi)' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.ecommerce.avg_order_value_3m}</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h4>{l s='Languages' mod='bwhealthcheck'}</h4>
+                <h4>{l s='Lingue' mod='bwhealthcheck'}</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{l s='Name' mod='bwhealthcheck'}</th>
+                            <th>{l s='Nome' mod='bwhealthcheck'}</th>
                             <th>{l s='ISO Code' mod='bwhealthcheck'}</th>
-                            <th>{l s='Status' mod='bwhealthcheck'}</th>
+                            <th>{l s='Stato' mod='bwhealthcheck'}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,7 +130,7 @@
                         <tr>
                             <td>{$lang.name}</td>
                             <td><code>{$lang.iso_code}</code></td>
-                            <td>{if $lang.active}<span class="badge badge-success">{l s='Active' mod='bwhealthcheck'}</span>{else}<span class="badge badge-secondary">{l s='Inactive' mod='bwhealthcheck'}</span>{/if}</td>
+                            <td>{if $lang.active}<span class="badge badge-success">{l s='Attivo' mod='bwhealthcheck'}</span>{else}<span class="badge badge-secondary">{l s='Inattivo' mod='bwhealthcheck'}</span>{/if}</td>
                         </tr>
                         {/foreach}
                     </tbody>
@@ -141,42 +141,42 @@
         <!-- Section 4: Theme -->
         <div class="row" style="margin-bottom: 10px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
             <div class="col-md-12">
-                <h3>{l s='4. Active Theme' mod='bwhealthcheck'}</h3>
+                <h3>{l s='4. Tema Attivo' mod='bwhealthcheck'}</h3>
                 <table class="table table-striped hc-table">
                     <tbody>
                         <tr>
-                            <td><strong>{l s='Theme Name' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Nome Tema' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.theme.name}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Theme Version' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Versione Tema' mod='bwhealthcheck'}</strong></td>
                             <td>{$data.theme.version}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Parent Theme' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Tema Genitore' mod='bwhealthcheck'}</strong></td>
                             <td>{if $data.theme.parent}{$data.theme.parent}{else}—{/if}</td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Theme Directory' mod='bwhealthcheck'}</strong></td>
+                            <td><strong>{l s='Directory Tema' mod='bwhealthcheck'}</strong></td>
                             <td><code>{$data.theme.directory}</code></td>
                         </tr>
                         <tr>
-                            <td><strong>{l s='Is Child Theme' mod='bwhealthcheck'}</strong></td>
-                            <td>{if $data.theme.is_child_theme}<span class="badge badge-info">{l s='Yes' mod='bwhealthcheck'} — parent: {$data.theme.parent}</span>{else}<span class="badge badge-secondary">{l s='No' mod='bwhealthcheck'}</span>{/if}</td>
+                            <td><strong>{l s='Child Theme' mod='bwhealthcheck'}</strong></td>
+                            <td>{if $data.theme.is_child_theme}<span class="badge badge-info">{l s='Sì' mod='bwhealthcheck'} — parent: {$data.theme.parent}</span>{else}<span class="badge badge-secondary">{l s='No' mod='bwhealthcheck'}</span>{/if}</td>
                         </tr>
                     </tbody>
                 </table>
 
                 {if !empty($data.theme.child_themes)}
-                <h4>{l s='Child Themes Found' mod='bwhealthcheck'}</h4>
+                <h4>{l s='Child Theme Trovati' mod='bwhealthcheck'}</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{l s='Name' mod='bwhealthcheck'}</th>
-                            <th>{l s='Directory' mod='bwhealthcheck'}</th>
-                            <th>{l s='Parent' mod='bwhealthcheck'}</th>
-                            <th>{l s='Version' mod='bwhealthcheck'}</th>
-                            <th>{l s='Status' mod='bwhealthcheck'}</th>
+                            <th>{l s='Nome' mod='bwhealthcheck'}</th>
+                            <th>{l s='Cartella' mod='bwhealthcheck'}</th>
+                            <th>{l s='Genitore' mod='bwhealthcheck'}</th>
+                            <th>{l s='Versione' mod='bwhealthcheck'}</th>
+                            <th>{l s='Stato' mod='bwhealthcheck'}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -186,13 +186,13 @@
                             <td><code>{$child.directory}</code></td>
                             <td>{$child.parent}</td>
                             <td>{$child.version}</td>
-                            <td>{if $child.is_active}<span class="badge badge-success">{l s='Active' mod='bwhealthcheck'}</span>{else}<span class="badge badge-secondary">{l s='Inactive' mod='bwhealthcheck'}</span>{/if}</td>
+                            <td>{if $child.is_active}<span class="badge badge-success">{l s='Attivo' mod='bwhealthcheck'}</span>{else}<span class="badge badge-secondary">{l s='Inattivo' mod='bwhealthcheck'}</span>{/if}</td>
                         </tr>
                         {/foreach}
                     </tbody>
                 </table>
                 {else}
-                <p class="alert alert-success">{l s='No child themes detected.' mod='bwhealthcheck'}</p>
+                <p class="alert alert-success">{l s='Nessun child theme rilevato.' mod='bwhealthcheck'}</p>
                 {/if}
             </div>
         </div>
@@ -200,21 +200,21 @@
         <!-- Section 5: Modules -->
         <div class="row" style="margin-bottom: 10px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
             <div class="col-md-12">
-                <h3>{l s='5. Modules' mod='bwhealthcheck'}</h3>
+                <h3>{l s='5. Moduli' mod='bwhealthcheck'}</h3>
                 <p>
-                    <strong>{l s='Active Modules' mod='bwhealthcheck'}:</strong> {$data.modules.count_active} |
-                    <strong>{l s='Inactive Modules' mod='bwhealthcheck'}:</strong> {$data.modules.count_inactive}
+                    <strong>{l s='Moduli Attivi' mod='bwhealthcheck'}:</strong> {$data.modules.count_active} |
+                    <strong>{l s='Moduli Inattivi' mod='bwhealthcheck'}:</strong> {$data.modules.count_inactive}
                 </p>
 
                 {if $data.modules.count_active > 0}
-                <h4>{l s='Active Modules' mod='bwhealthcheck'}</h4>
+                <h4>{l s='Moduli Attivi' mod='bwhealthcheck'}</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{l s='Module Name' mod='bwhealthcheck'}</th>
-                            <th>{l s='Display Name' mod='bwhealthcheck'}</th>
-                            <th>{l s='Version' mod='bwhealthcheck'}</th>
-                            <th>{l s='Author' mod='bwhealthcheck'}</th>
+                            <th>{l s='Nome Modulo' mod='bwhealthcheck'}</th>
+                            <th>{l s='Nome Visualizzato' mod='bwhealthcheck'}</th>
+                            <th>{l s='Versione' mod='bwhealthcheck'}</th>
+                            <th>{l s='Autore' mod='bwhealthcheck'}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -231,13 +231,13 @@
                 {/if}
 
                 {if $data.modules.count_inactive > 0}
-                <h4>{l s='Inactive Modules' mod='bwhealthcheck'}</h4>
+                <h4>{l s='Moduli Inattivi' mod='bwhealthcheck'}</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{l s='Module Name' mod='bwhealthcheck'}</th>
-                            <th>{l s='Display Name' mod='bwhealthcheck'}</th>
-                            <th>{l s='Version' mod='bwhealthcheck'}</th>
+                            <th>{l s='Nome Modulo' mod='bwhealthcheck'}</th>
+                            <th>{l s='Nome Visualizzato' mod='bwhealthcheck'}</th>
+                            <th>{l s='Versione' mod='bwhealthcheck'}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -257,14 +257,14 @@
         <!-- Section 3: Overrides -->
         <div class="row" style="margin-bottom: 10px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
             <div class="col-md-12">
-                <h3>{l s='6. System Overrides' mod='bwhealthcheck'}</h3>
+                <h3>{l s='6. Override di Sistema' mod='bwhealthcheck'}</h3>
 
                 {if !empty($data.overrides.system)}
-                <h4>{l s='Core Overrides' mod='bwhealthcheck'}</h4>
+                <h4>{l s='Override Core' mod='bwhealthcheck'}</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{l s='Class' mod='bwhealthcheck'}</th>
+                            <th>{l s='Classe' mod='bwhealthcheck'}</th>
                             <th>{l s='File' mod='bwhealthcheck'}</th>
                         </tr>
                     </thead>
@@ -278,17 +278,17 @@
                     </tbody>
                 </table>
                 {else}
-                <p class="alert alert-success">{l s='No system overrides detected.' mod='bwhealthcheck'}</p>
+                <p class="alert alert-success">{l s='Nessun override di sistema rilevato.' mod='bwhealthcheck'}</p>
                 {/if}
 
                 {if !empty($data.overrides.by_modules)}
-                <h4>{l s='Module Overrides' mod='bwhealthcheck'}</h4>
+                <h4>{l s='Override dai Moduli' mod='bwhealthcheck'}</h4>
                 {foreach from=$data.overrides.by_modules key=moduleName item=overrides}
-                <h5>{l s='Module' mod='bwhealthcheck'}: <code>{$moduleName}</code></h5>
+                <h5>{l s='Modulo' mod='bwhealthcheck'}: <code>{$moduleName}</code></h5>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{l s='Class' mod='bwhealthcheck'}</th>
+                            <th>{l s='Classe' mod='bwhealthcheck'}</th>
                             <th>{l s='File' mod='bwhealthcheck'}</th>
                         </tr>
                     </thead>
@@ -312,7 +312,7 @@
             <div class="col-md-12">
                 <p class="text-muted">
                     <small>
-                        {l s='Last updated' mod='bwhealthcheck'}: {$data.generated_at}
+                        {l s='Ultimo aggiornamento' mod='bwhealthcheck'}: {$data.generated_at}
                     </small>
                 </p>
             </div>
@@ -326,14 +326,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="bwhealthcheck_modal_label">
-                    {l s='Send Health Check Report to bwlab' mod='bwhealthcheck'}
+                    {l s='Invia Report e Richiedi Preventivo' mod='bwhealthcheck'}
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>{l s='Authorize bwlab to analyze your shop data and contact you for free consultation.' mod='bwhealthcheck'}</p>
+                <p>{l s='Autorizza bwlab ad analizzare i dati del tuo shop e a ricontattarti per un preventivo gratuito.' mod='bwhealthcheck'}</p>
 
                 <form id="bwhealthcheck_form" method="post">
                     <!-- Email Field -->
@@ -344,19 +344,19 @@
 
                     <!-- Name Field -->
                     <div class="form-group">
-                        <label for="bwhealthcheck_name">{l s='Name' mod='bwhealthcheck'} <span class="text-danger">*</span></label>
+                        <label for="bwhealthcheck_name">{l s='Nome' mod='bwhealthcheck'} <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="bwhealthcheck_name" name="name" value="{$admin_name|escape:'html'}" required>
                     </div>
 
                     <!-- Company Field -->
                     <div class="form-group">
-                        <label for="bwhealthcheck_company">{l s='Company' mod='bwhealthcheck'} <span class="text-danger">*</span></label>
+                        <label for="bwhealthcheck_company">{l s='Azienda' mod='bwhealthcheck'} <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="bwhealthcheck_company" name="company" value="{$shop_name|escape:'html'}" required>
                     </div>
 
                     <!-- Phone Field (optional) -->
                     <div class="form-group">
-                        <label for="bwhealthcheck_phone">{l s='Phone' mod='bwhealthcheck'} <span class="text-danger">*</span></label>
+                        <label for="bwhealthcheck_phone">{l s='Telefono' mod='bwhealthcheck'} <span class="text-danger">*</span></label>
                         <input type="tel" class="form-control" id="bwhealthcheck_phone" name="phone" value="" required>
                     </div>
 
@@ -365,7 +365,7 @@
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="bwhealthcheck_privacy" name="privacy" required>
                             <label class="custom-control-label" for="bwhealthcheck_privacy">
-                                {l s='I have read and accept the' mod='bwhealthcheck'}
+                                {l s='Ho letto e accetto la' mod='bwhealthcheck'}
                                 <a href="https://www.bwlab.it/articoli/privacy-policy" target="_blank" rel="noopener">
                                     {l s='Privacy Policy' mod='bwhealthcheck'}
                                 </a>
@@ -384,10 +384,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    {l s='Cancel' mod='bwhealthcheck'}
+                    {l s='Annulla' mod='bwhealthcheck'}
                 </button>
                 <button type="button" class="btn btn-primary" id="bwhealthcheck_submit" disabled>
-                    {l s='Send Report' mod='bwhealthcheck'}
+                    {l s='Invia Report' mod='bwhealthcheck'}
                 </button>
             </div>
         </div>
@@ -421,18 +421,18 @@
 
             if (!email || !name || !company || !phone) {
                 $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                $messageDiv.text('{l s="Please fill all required fields" mod="bwhealthcheck"}');
+                $messageDiv.text('{l s="Compila tutti i campi obbligatori" mod="bwhealthcheck"}');
                 return;
             }
 
             if (!$privacyCheckbox.prop('checked')) {
                 $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                $messageDiv.text('{l s="You must accept the privacy policy" mod="bwhealthcheck"}');
+                $messageDiv.text('{l s="Devi accettare la privacy policy" mod="bwhealthcheck"}');
                 return;
             }
 
             // Disable submit button while processing
-            $submitBtn.prop('disabled', true).html('<i class="icon icon-spinner icon-spin"></i> {l s="Sending..." mod="bwhealthcheck"}');
+            $submitBtn.prop('disabled', true).html('<i class="icon icon-spinner icon-spin"></i> {l s="Invio in corso..." mod="bwhealthcheck"}');
 
             // Send AJAX request
             $.ajax({
@@ -443,7 +443,7 @@
                 success: function(response) {
                     if (response.success) {
                         $messageDiv.removeClass('alert-danger').addClass('alert-success').show();
-                        $messageDiv.html('<strong>{l s="Success!" mod="bwhealthcheck"}</strong> ' + response.message);
+                        $messageDiv.html('<strong>{l s="Inviato!" mod="bwhealthcheck"}</strong> ' + response.message);
 
                         // Reset form after 3 seconds
                         setTimeout(function() {
@@ -454,13 +454,13 @@
                         }, 3000);
                     } else {
                         $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                        $messageDiv.html('<strong>{l s="Error!" mod="bwhealthcheck"}</strong> ' + response.message);
+                        $messageDiv.html('<strong>{l s="Errore!" mod="bwhealthcheck"}</strong> ' + response.message);
                         $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html('{l s="Send Report" mod="bwhealthcheck"}');
                     }
                 },
                 error: function() {
                     $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                    $messageDiv.text('{l s="An error occurred while sending the report" mod="bwhealthcheck"}');
+                    $messageDiv.text('{l s="Si è verificato un errore durante l'invio del report" mod="bwhealthcheck"}');
                     $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html('{l s="Send Report" mod="bwhealthcheck"}');
                 }
             });
