@@ -53,7 +53,7 @@ Click **Send Report to bwlab** to open a modal with:
 - Phone number field
 - Privacy policy consent checkbox (required)
 
-On submit, the report is sent as a JSON attachment to `commerciale@bwlab.it` using your shop's configured SMTP.
+On submit, the report is sent as a JSON attachment to bwlab's sales team using your shop's configured SMTP.
 
 ## Technical Details
 
