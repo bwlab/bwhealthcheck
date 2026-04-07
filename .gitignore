@@ -1,0 +1,4 @@
+vendor/tcpdf/examples/
+vendor/tcpdf/tools/
+*.log
+.DS_Store
