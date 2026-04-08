@@ -377,6 +377,7 @@
                     <!-- Hidden token for CSRF -->
                     <input type="hidden" name="token" value="{$token|escape:'html'}">
                     <input type="hidden" name="action" value="send_report">
+                    <input type="hidden" id="bwhealthcheck_ajax_url" value="{$ajax_url|escape:'html'}">
                 </form>
 
                 <!-- Success/Error Message -->
@@ -394,7 +395,17 @@
     </div>
 </div>
 
+<div id="bwhealthcheck_i18n" style="display:none"
+    data-fill-required="{l s='Compila tutti i campi obbligatori' mod='bwhealthcheck'}"
+    data-accept-privacy="{l s='Devi accettare la privacy policy' mod='bwhealthcheck'}"
+    data-sending="{l s='Invio in corso...' mod='bwhealthcheck'}"
+    data-sent="{l s='Inviato!' mod='bwhealthcheck'}"
+    data-error="{l s='Errore!' mod='bwhealthcheck'}"
+    data-send-error="{l s='Si è verificato un errore durante l invio del report' mod='bwhealthcheck'}"
+    data-send-report="{l s='Invia Report' mod='bwhealthcheck'}"
+></div>
 <script type="text/javascript">
+{literal}
 (function($) {
     'use strict';
 
@@ -404,67 +415,62 @@
         var $privacyCheckbox = $('#bwhealthcheck_privacy');
         var $submitBtn = $('#bwhealthcheck_submit');
         var $messageDiv = $('#bwhealthcheck_message');
+        var i18n = $('#bwhealthcheck_i18n').data();
 
-        // Enable/disable submit button based on privacy checkbox
         $privacyCheckbox.on('change', function() {
             $submitBtn.prop('disabled', !this.checked);
         });
 
-        // Handle form submission
         $submitBtn.on('click', function() {
-            // Basic validation
             var email = $('#bwhealthcheck_email').val().trim();
             var name = $('#bwhealthcheck_name').val().trim();
             var company = $('#bwhealthcheck_company').val().trim();
-
             var phone = $('#bwhealthcheck_phone').val().trim();
 
             if (!email || !name || !company || !phone) {
                 $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                $messageDiv.text('{l s="Compila tutti i campi obbligatori" mod="bwhealthcheck"}');
+                $messageDiv.text(i18n.fillRequired);
                 return;
             }
 
             if (!$privacyCheckbox.prop('checked')) {
                 $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                $messageDiv.text('{l s="Devi accettare la privacy policy" mod="bwhealthcheck"}');
+                $messageDiv.text(i18n.acceptPrivacy);
                 return;
             }
 
-            // Disable submit button while processing
-            $submitBtn.prop('disabled', true).html('<i class="icon icon-spinner icon-spin"></i> {l s="Invio in corso..." mod="bwhealthcheck"}');
+            $submitBtn.prop('disabled', true).html('<i class="icon icon-spinner icon-spin"></i> ' + i18n.sending);
 
-            // Send AJAX request
             $.ajax({
                 type: 'POST',
-                url: '{$ajax_url|escape:"javascript"}',
+                url: $('#bwhealthcheck_ajax_url').val(),
                 dataType: 'json',
                 data: $form.serialize(),
                 success: function(response) {
                     if (response.success) {
                         $messageDiv.removeClass('alert-danger').addClass('alert-success').show();
-                        $messageDiv.html('<strong>{l s="Inviato!" mod="bwhealthcheck"}</strong> ' + response.message);
+                        $messageDiv.html('<strong>' + i18n.sent + '</strong> ' + response.message);
 
-                        // Reset form after 3 seconds
                         setTimeout(function() {
                             $form[0].reset();
                             $privacyCheckbox.prop('checked', false);
-                            $submitBtn.prop('disabled', true).html('{l s="Send Report" mod="bwhealthcheck"}');
+                            $submitBtn.prop('disabled', true).html(i18n.sendReport);
                             $modal.modal('hide');
                         }, 3000);
                     } else {
                         $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                        $messageDiv.html('<strong>{l s="Errore!" mod="bwhealthcheck"}</strong> ' + response.message);
-                        $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html('{l s="Send Report" mod="bwhealthcheck"}');
+                        $messageDiv.html('<strong>' + i18n.error + '</strong> ' + response.message);
+                        $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html(i18n.sendReport);
                     }
                 },
                 error: function() {
                     $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                    $messageDiv.text('{l s="Si è verificato un errore durante l\'invio del report" mod="bwhealthcheck"}');
-                    $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html('{l s="Send Report" mod="bwhealthcheck"}');
+                    $messageDiv.text(i18n.sendError);
+                    $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html(i18n.sendReport);
                 }
             });
         });
     });
 })(jQuery);
+{/literal}
 </script>
