@@ -23,7 +23,7 @@ class BwHealthCheck extends Module
     {
         $this->name = 'bwhealthcheck';
         $this->tab = 'administration';
-        $this->version = '1.0.0';
+        $this->version = '1.1.1';
         $this->author = 'bwlab, Xpert Tech Agency';
         $this->need_instance = 1;
         $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);

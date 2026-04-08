@@ -460,7 +460,7 @@
                 },
                 error: function() {
                     $messageDiv.removeClass('alert-success').addClass('alert-danger').show();
-                    $messageDiv.text('{l s="Si è verificato un errore durante l'invio del report" mod="bwhealthcheck"}');
+                    $messageDiv.text('{l s="Si è verificato un errore durante l\'invio del report" mod="bwhealthcheck"}');
                     $submitBtn.prop('disabled', !$privacyCheckbox.prop('checked')).html('{l s="Send Report" mod="bwhealthcheck"}');
                 }
             });

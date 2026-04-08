@@ -2,7 +2,7 @@
 <module>
     <name>bwhealthcheck</name>
     <displayName><![CDATA[Health Check Report Generator]]></displayName>
-    <version><![CDATA[1.0.0]]></version>
+    <version><![CDATA[1.1.1]]></version>
     <description><![CDATA[Generate comprehensive health check reports of your PrestaShop installation]]></description>
     <author><![CDATA[bwlab]]></author>
     <tab><![CDATA[administration]]></tab>
