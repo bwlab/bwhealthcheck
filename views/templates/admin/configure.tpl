@@ -437,7 +437,7 @@
             // Send AJAX request
             $.ajax({
                 type: 'POST',
-                url: '{$ajax_url|escape:'javascript'}',
+                url: '{$ajax_url|escape:"javascript"}',
                 dataType: 'json',
                 data: $form.serialize(),
                 success: function(response) {
